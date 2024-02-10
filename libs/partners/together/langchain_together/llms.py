@@ -122,7 +122,7 @@ class Together(LLM):
         payload: Dict[str, Any] = {
             **self.default_params,
             "prompt": prompt,
-            "stop": stop_to_use,
+            "stop": [stop_to_use],
             **kwargs,
         }
 
