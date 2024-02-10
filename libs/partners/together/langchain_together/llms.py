@@ -118,11 +118,11 @@ class Together(LLM):
             "Authorization": f"Bearer {self.together_api_key.get_secret_value()}",
             "Content-Type": "application/json",
         }
-        stop_to_use = stop[0] if stop and len(stop) == 1 else stop
+        stop_to_use = [stop[0]] if stop and len(stop) == 1 else stop
         payload: Dict[str, Any] = {
             **self.default_params,
             "prompt": prompt,
-            "stop": [stop_to_use],
+            "stop": stop_to_use,
             **kwargs,
         }
 
